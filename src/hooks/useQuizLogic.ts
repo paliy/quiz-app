@@ -1,20 +1,12 @@
+import { QuizQuestion } from '../interfaces'
 import { getRandomQuestions } from '../utils/getRandomQuestions'
 import { useState, useEffect, useCallback, useMemo } from 'react'
 
-interface Question {
-  category: string
-  type: string
-  difficulty: string
-  question: string
-  correct_answer: string
-  incorrect_answers?: string[]
-}
-
-export const useQuizLogic = (questions: Question[], initialCount: number) => {
+export const useQuizLogic = (questions: QuizQuestion[], initialCount: number) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState<number>(0)
   const [answers, setAnswers] = useState<Record<string, string | string[]>>({})
   const [submitted, setSubmitted] = useState<boolean>(false)
-  const [currentQuestions, setCurrentQuestions] = useState<Question[]>([])
+  const [currentQuestions, setCurrentQuestions] = useState<QuizQuestion[]>([])
 
   useEffect(() => {
     if (questions?.length > 0) {
