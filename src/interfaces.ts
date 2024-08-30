@@ -3,7 +3,7 @@ export interface QuizQuestion {
   type: string
   difficulty: string
   question: string
-  correct_answer: string
+  correct_answer: string | string[]
   incorrect_answers?: string[]
 }
 

@@ -12,29 +12,26 @@ interface QuestionProps {
 }
 
 const Question = memo(({ question, submitted, onAnswerChange }: QuestionProps) => {
-  const [selectedAnswer, setSelectedAnswer] = useState<string | string[]>([]);
+  const [selectedAnswer, setSelectedAnswer] = useState<string | string[]>(
+    question.type === 'multiple' ? [] : ''
+  );
 
-  const handleMultipleChange = (value: string, checked: boolean) => {
+  const handleMultipleChange = useCallback((value: string, checked: boolean) => {
     const updatedAnswers = checked
       ? [...(selectedAnswer as string[]), value]
       : (selectedAnswer as string[]).filter(answer => answer !== value);
     setSelectedAnswer(updatedAnswers);
     onAnswerChange(question.question, updatedAnswers);
-  };
+  }, [selectedAnswer, question.question, onAnswerChange]);
 
   const handleChange = useCallback((value: string | string[], checked?: boolean) => {
-    if (Array.isArray(value)) {
+    if (question.type === 'multiple' && typeof value === 'string' && checked !== undefined) {
+      handleMultipleChange(value, checked);
+    } else {
       setSelectedAnswer(value);
       onAnswerChange(question.question, value);
-    } else {
-      if (question.type === 'multiple' && checked !== undefined) {
-        handleMultipleChange(value, checked);
-      } else {
-        setSelectedAnswer(value);
-        onAnswerChange(question.question, value);
-      }
     }
-  }, [question.question, question.type, onAnswerChange]);
+  }, [handleMultipleChange, question.question, question.type, onAnswerChange]);
 
   const renderQuestion = () => {
     const questionText = decodeHtmlEntities(question.question);
