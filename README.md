@@ -73,6 +73,12 @@ If you want to build the application for production, use:
 yarn run build
 ```
 
+3. **Start tests:**
+
+```bash
+yarn test
+```
+
 This will create a build directory with optimized static files for deployment.
 
 ### Contributing
