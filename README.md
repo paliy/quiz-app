@@ -19,6 +19,7 @@ Follow these instructions to set up and run the application locally.
 Make sure you have the following software installed:
 
 - [Node.js](https://nodejs.org/) (version 14 or higher)
+- [Yarn](https://yarnpkg.com/) (for managing dependencies)
 
 ### Installation
 
