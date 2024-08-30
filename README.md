@@ -33,7 +33,7 @@ cd quiz-app
 2. **Install the dependencies:**
 
 ```bash
-npm install
+yarn install
 ```
 
 3. **Add the questions data:**
@@ -60,7 +60,7 @@ npm install
 1. **Start the development server:**
 
 ```bash
-npm run dev
+yarn run dev
 ```
 
 This will start the development server and open the application in your default web browser. The app will be accessible at http://localhost:3000.
@@ -70,7 +70,7 @@ This will start the development server and open the application in your default 
 If you want to build the application for production, use:
 
 ```bash
-npm run build
+yarn run build
 ```
 
 This will create a build directory with optimized static files for deployment.
