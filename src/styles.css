@@ -9,6 +9,7 @@
   --shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   --px10: 10px;
   --px20: 20px;
+  --px0: 0;
   --button-margin: 20px;
   --font-size: 16px;
   --large-font-size: 1.25em;
@@ -87,12 +88,12 @@ body {
 .question {
   background-color: #fff;
   border-radius: var(--px20);
-  margin-bottom: var(--px20);
 }
 
-.question h3 {
+.question h4 {
   font-size: var(--px20);
   margin-bottom: var(--px10);
+  margin-top: var(--px0);
 }
 
 .question div {
